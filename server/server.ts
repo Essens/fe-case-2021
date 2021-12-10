@@ -4,6 +4,8 @@ import {articleList, isArticle} from './articles';
 const app = express();
 const PORT = 8080;
 
+app.use(express.json())
+
 app.get('/articles', (req, res) => res.json(articleList));
 
 app.post('/articles', (req, res) => {
@@ -17,7 +19,6 @@ app.post('/articles', (req, res) => {
   }
 });
 
-app.use(express.json())
 
 app.listen(PORT, () => {
   console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
